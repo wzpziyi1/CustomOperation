@@ -10,12 +10,14 @@
 		096D18921B60BA8C00722B46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18911B60BA8C00722B46 /* main.m */; };
 		096D18951B60BA8C00722B46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18941B60BA8C00722B46 /* AppDelegate.m */; };
 		096D18981B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 096D18961B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodeld */; };
-		096D189B1B60BA8C00722B46 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D189A1B60BA8C00722B46 /* MasterViewController.m */; };
-		096D189E1B60BA8C00722B46 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D189D1B60BA8C00722B46 /* DetailViewController.m */; };
-		096D18A11B60BA8C00722B46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096D189F1B60BA8C00722B46 /* Main.storyboard */; };
 		096D18A31B60BA8C00722B46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 096D18A21B60BA8C00722B46 /* Images.xcassets */; };
 		096D18A61B60BA8C00722B46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096D18A41B60BA8C00722B46 /* LaunchScreen.xib */; };
 		096D18B21B60BA8C00722B46 /* CustomOperationForDownLoadImageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18B11B60BA8C00722B46 /* CustomOperationForDownLoadImageTests.m */; };
+		096D18BE1B60BAAC00722B46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18BC1B60BAAC00722B46 /* ViewController.m */; };
+		096D18BF1B60BAAC00722B46 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 096D18BD1B60BAAC00722B46 /* ViewController.xib */; };
+		096D18C21B60BAF000722B46 /* ZYDownLoadImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18C11B60BAF000722B46 /* ZYDownLoadImageOperation.m */; };
+		096D18C41B60BDC900722B46 /* apps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 096D18C31B60BDC900722B46 /* apps.plist */; };
+		096D18C71B60BE0100722B46 /* ZYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18C61B60BE0100722B46 /* ZYApp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +37,19 @@
 		096D18931B60BA8C00722B46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		096D18941B60BA8C00722B46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		096D18971B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CustomOperationForDownLoadImage.xcdatamodel; sourceTree = "<group>"; };
-		096D18991B60BA8C00722B46 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		096D189A1B60BA8C00722B46 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		096D189C1B60BA8C00722B46 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		096D189D1B60BA8C00722B46 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		096D18A01B60BA8C00722B46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		096D18A21B60BA8C00722B46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		096D18A51B60BA8C00722B46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		096D18AB1B60BA8C00722B46 /* CustomOperationForDownLoadImageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomOperationForDownLoadImageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		096D18B01B60BA8C00722B46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		096D18B11B60BA8C00722B46 /* CustomOperationForDownLoadImageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomOperationForDownLoadImageTests.m; sourceTree = "<group>"; };
+		096D18BB1B60BAAC00722B46 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		096D18BC1B60BAAC00722B46 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		096D18BD1B60BAAC00722B46 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		096D18C01B60BAF000722B46 /* ZYDownLoadImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYDownLoadImageOperation.h; sourceTree = "<group>"; };
+		096D18C11B60BAF000722B46 /* ZYDownLoadImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYDownLoadImageOperation.m; sourceTree = "<group>"; };
+		096D18C31B60BDC900722B46 /* apps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apps.plist; sourceTree = "<group>"; };
+		096D18C51B60BE0100722B46 /* ZYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYApp.h; sourceTree = "<group>"; };
+		096D18C61B60BE0100722B46 /* ZYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYApp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +93,13 @@
 			children = (
 				096D18931B60BA8C00722B46 /* AppDelegate.h */,
 				096D18941B60BA8C00722B46 /* AppDelegate.m */,
-				096D18991B60BA8C00722B46 /* MasterViewController.h */,
-				096D189A1B60BA8C00722B46 /* MasterViewController.m */,
-				096D189C1B60BA8C00722B46 /* DetailViewController.h */,
-				096D189D1B60BA8C00722B46 /* DetailViewController.m */,
-				096D189F1B60BA8C00722B46 /* Main.storyboard */,
+				096D18BB1B60BAAC00722B46 /* ViewController.h */,
+				096D18BC1B60BAAC00722B46 /* ViewController.m */,
+				096D18BD1B60BAAC00722B46 /* ViewController.xib */,
+				096D18C01B60BAF000722B46 /* ZYDownLoadImageOperation.h */,
+				096D18C11B60BAF000722B46 /* ZYDownLoadImageOperation.m */,
+				096D18C51B60BE0100722B46 /* ZYApp.h */,
+				096D18C61B60BE0100722B46 /* ZYApp.m */,
 				096D18A21B60BA8C00722B46 /* Images.xcassets */,
 				096D18A41B60BA8C00722B46 /* LaunchScreen.xib */,
 				096D18961B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodeld */,
@@ -104,6 +111,7 @@
 		096D188F1B60BA8C00722B46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				096D18C31B60BDC900722B46 /* apps.plist */,
 				096D18901B60BA8C00722B46 /* Info.plist */,
 				096D18911B60BA8C00722B46 /* main.m */,
 			);
@@ -207,8 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				096D18A11B60BA8C00722B46 /* Main.storyboard in Resources */,
+				096D18C41B60BDC900722B46 /* apps.plist in Resources */,
 				096D18A61B60BA8C00722B46 /* LaunchScreen.xib in Resources */,
+				096D18BF1B60BAAC00722B46 /* ViewController.xib in Resources */,
 				096D18A31B60BA8C00722B46 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,11 +236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				096D189E1B60BA8C00722B46 /* DetailViewController.m in Sources */,
-				096D189B1B60BA8C00722B46 /* MasterViewController.m in Sources */,
+				096D18C71B60BE0100722B46 /* ZYApp.m in Sources */,
 				096D18951B60BA8C00722B46 /* AppDelegate.m in Sources */,
 				096D18981B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodeld in Sources */,
+				096D18BE1B60BAAC00722B46 /* ViewController.m in Sources */,
 				096D18921B60BA8C00722B46 /* main.m in Sources */,
+				096D18C21B60BAF000722B46 /* ZYDownLoadImageOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +264,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		096D189F1B60BA8C00722B46 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				096D18A01B60BA8C00722B46 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		096D18A41B60BA8C00722B46 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
