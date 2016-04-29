@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ZYApp.h"
 #import "ZYDownLoadImageOperation.h"
+#import "ZYFileTool.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, ZYDownLoadImageOperationDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -29,10 +30,12 @@
 #define ZYCellIdentifier  @"ZYCellIdentifier"
 - (NSArray *)apps
 {
-    if (_apps == nil) {
+    if (_apps == nil)
+    {
         NSArray *dictArray = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"apps.plist" ofType:nil]];
         NSMutableArray *tmpArray = [NSMutableArray array];
-        for (NSDictionary *dict in dictArray) {
+        for (NSDictionary *dict in dictArray)
+        {
             ZYApp *app = [ZYApp appWithDict:dict];
             [tmpArray addObject:app];
         }
@@ -43,7 +46,8 @@
 
 - (NSOperationQueue *)queue
 {
-    if (_queue == nil) {
+    if (_queue == nil)
+    {
         _queue = [[NSOperationQueue alloc] init];
         _queue.maxConcurrentOperationCount = 3;
     }
@@ -52,7 +56,8 @@
 
 - (NSMutableDictionary *)operations
 {
-    if (_operations == nil) {
+    if (_operations == nil)
+    {
         _operations = [NSMutableDictionary dictionary];
     }
     return _operations;
@@ -91,34 +96,58 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZYCellIdentifier];
-    if (cell == nil) {
+    if (cell == nil)
+    {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ZYCellIdentifier];
     }
     ZYApp *app = self.apps[indexPath.row];
     cell.textLabel.text = app.name;
     cell.detailTextLabel.text = app.download;
-    UIImage *image = self.images[app.icon];
-    if (image) {
+    UIImage *image = self.images[app.icon];   //优先从内存缓存中读取图片
+    
+    if (image)     //如果内存缓存中有
+    {
         cell.imageView.image = image;
     }
-    else{
-        cell.imageView.image = [UIImage imageNamed:@"TestMam"];
-        ZYDownLoadImageOperation *operation = self.operations[app.icon];
-        if (operation) {  //正在下载（可以在里面取消下载）
-            
+    else
+    {
+        //如果内存缓存中没有，那么从本地缓存中读取
+        NSData *imageData = [ZYFileTool readDataWithFileName:app.icon type:ZYFileToolTypeCache];
+        
+        if (imageData)  //如果本地缓存中有图片，则直接读取，更新
+        {
+            UIImage *image = [UIImage imageWithData:imageData];
+            self.images[app.icon] = image;
+            cell.imageView.image = image;
         }
-        else{ //没有在下载
-            operation = [[ZYDownLoadImageOperation alloc] init];
-            operation.delegate = self;
-            operation.url = app.icon;
-            operation.indexPath = indexPath;
-            [self.queue addOperation:operation];  //异步下载
-            
-            self.operations[app.icon] = operation;  //加入字典，表示正在执行此次操作
+        else
+        {
+            cell.imageView.image = [UIImage imageNamed:@"TestMam"];
+            ZYDownLoadImageOperation *operation = self.operations[app.icon];
+            if (operation)
+            {  //正在下载（可以在里面取消下载）
+            }
+            else
+            { //没有在下载
+                operation = [[ZYDownLoadImageOperation alloc] init];
+                operation.delegate = self;
+                operation.url = app.icon;
+                operation.indexPath = indexPath;
+                [self.queue addOperation:operation];  //异步下载
+                
+                
+                self.operations[app.icon] = operation;  //加入字典，表示正在执行此次操作
+            }
         }
     }
     return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
 
 #pragma mark -- ZYDownLoadImageOperationDelegate
 - (void)DownLoadImageOperation:(ZYDownLoadImageOperation *)operation didFinishDownLoadImage:(UIImage *)image
@@ -134,13 +163,44 @@
 }
 
 #pragma mark --- UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView  //设置优先级别，效果是，最先下载展示在屏幕上的图片（本例子中图片太小了，没有明显的效果出现，可以设置更多的一些高清大图）
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_apply(self.apps.count, queue, ^(size_t i) {
+        ZYApp *appTmp = self.apps[i];
+        NSString *urlStr = appTmp.icon;
+
+        ZYDownLoadImageOperation *operation = self.operations[urlStr];
+        if (operation)
+        {
+            operation.queuePriority = NSOperationQueuePriorityNormal;
+        }
+    });
+    
+    NSArray *tempArray = [self.tableView indexPathsForVisibleRows];
+    
+    dispatch_apply(tempArray.count, queue, ^(size_t i) {
+        NSIndexPath *indexPath = tempArray[i];
+
+        ZYApp *appTmp = self.apps[indexPath.row];
+        NSString *urlStr = appTmp.icon;
+        ZYDownLoadImageOperation *operation = self.operations[urlStr];
+        if (operation)
+        {
+            operation.queuePriority = NSOperationQueuePriorityVeryHigh;
+        }
+    });
+    
+}
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.queue setSuspended:YES];    //在拖拽的时候，停止队列下载
+    self.queue.suspended = YES;
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
-    [self.queue setSuspended:NO];    //在停止拖拽的时候，开始队列下载
+    self.queue.suspended = NO;
 }
 @end

@@ -18,6 +18,7 @@
 		096D18C21B60BAF000722B46 /* ZYDownLoadImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18C11B60BAF000722B46 /* ZYDownLoadImageOperation.m */; };
 		096D18C41B60BDC900722B46 /* apps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 096D18C31B60BDC900722B46 /* apps.plist */; };
 		096D18C71B60BE0100722B46 /* ZYApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 096D18C61B60BE0100722B46 /* ZYApp.m */; };
+		09A8413F1CAA6170001CC60F /* ZYFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A8413E1CAA6170001CC60F /* ZYFileTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		096D18C31B60BDC900722B46 /* apps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = apps.plist; sourceTree = "<group>"; };
 		096D18C51B60BE0100722B46 /* ZYApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYApp.h; sourceTree = "<group>"; };
 		096D18C61B60BE0100722B46 /* ZYApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYApp.m; sourceTree = "<group>"; };
+		09A8413D1CAA6170001CC60F /* ZYFileTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYFileTool.h; sourceTree = "<group>"; };
+		09A8413E1CAA6170001CC60F /* ZYFileTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYFileTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 		096D188E1B60BA8C00722B46 /* CustomOperationForDownLoadImage */ = {
 			isa = PBXGroup;
 			children = (
+				09A8413D1CAA6170001CC60F /* ZYFileTool.h */,
+				09A8413E1CAA6170001CC60F /* ZYFileTool.m */,
 				096D18931B60BA8C00722B46 /* AppDelegate.h */,
 				096D18941B60BA8C00722B46 /* AppDelegate.m */,
 				096D18BB1B60BAAC00722B46 /* ViewController.h */,
@@ -184,6 +189,7 @@
 				TargetAttributes = {
 					096D188B1B60BA8C00722B46 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = T6FCKHRT95;
 					};
 					096D18AA1B60BA8C00722B46 = {
 						CreatedOnToolsVersion = 6.4;
@@ -240,6 +246,7 @@
 				096D18951B60BA8C00722B46 /* AppDelegate.m in Sources */,
 				096D18981B60BA8C00722B46 /* CustomOperationForDownLoadImage.xcdatamodeld in Sources */,
 				096D18BE1B60BAAC00722B46 /* ViewController.m in Sources */,
+				09A8413F1CAA6170001CC60F /* ZYFileTool.m in Sources */,
 				096D18921B60BA8C00722B46 /* main.m in Sources */,
 				096D18C21B60BAF000722B46 /* ZYDownLoadImageOperation.m in Sources */,
 			);
@@ -359,6 +366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CustomOperationForDownLoadImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = CustomOperationForDownLoadImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,6 +437,7 @@
 				096D18B71B60BA8C00722B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		096D18B81B60BA8C00722B46 /* Build configuration list for PBXNativeTarget "CustomOperationForDownLoadImageTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +446,7 @@
 				096D18BA1B60BA8C00722B46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
